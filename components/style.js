@@ -8,7 +8,11 @@ export default {
   },
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#8c5687'
+  },
+  view: {
+    backgroundColor: '#8c5687'
   }
 
 };
