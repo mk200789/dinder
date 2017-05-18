@@ -16,16 +16,33 @@ export default class SideMenu extends Component {
   constructor(props) {
     super(props)
   }
+
   render() {
+    console.log("sideMenu.js")
     let list = [{
       title: "Match",
+
       onPress: () => {
-        this.props.navigator.replace("Match")
+        this.props.navigator.replace({
+          title: 'Match',
+          passProps: this.props
+        })
+        this.props.toggleDrawer()
       }
     }, {
       title: "History",
+        onPress: () => {
+          this.props.navigator.replace({
+            title: 'History',
+            passProps: this.props
+          })
+          this.props.toggleDrawer()
+        }
+    },{
+      title: "SignOut",
       onPress: () => {
-        this.props.navigator.replace("History")
+        this.props.navigator.replace({title: "SignOut", passProps: this.props})
+        this.props.toggleDrawer()
       }
     }]
 
@@ -34,7 +51,7 @@ export default class SideMenu extends Component {
         <View>
           <List dataArray={list} renderRow={(item) =>
             <ListItem button onPress={item.onPress.bind(this)} style={{borderBottomWidth: 0}}>
-              <Text> {item.title} </Text>
+              <Text style={{color:'black'}}> {item.title} </Text>
             </ListItem>
           }/>
         </View>
