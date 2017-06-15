@@ -9,6 +9,8 @@ import {
   Spinner
 } from 'native-base'
 import {observer} from 'mobx-react/native'
+import {Router, Scene, ActionConst, Actions} from 'react-native-router-flux';
+import {AsyncStorage} from 'react-native'
 
 
 @observer
@@ -31,23 +33,25 @@ export default class Login extends Component{
   }
 
   signIn(){
-    const {auth} = this.props.stores
+    const {auth} = this.props.state.stores
     const {email, password} = this.state
     this.setState({loading: true}, () => {
       auth.signIn({email, password})
-        .then(() => {
-          this.props.navigator.replace({
-            title: 'Match',
-            passProps: this.props
-          })
+        .then((text) => {
+
+             this.props.state.user = text.email
+             AsyncStorage.setItem("user", text.email)
+             Actions.matchScene()
+        }).catch(function(error){
+             alert("Password/username is incorrect. Please try again.")
         })
     })
   }
 
   render(){
+       console.log("login.js: ", this)
     const {loading} = this.state
-    const {auth} = this.props.stores
-
+    const {auth} = this.props.state.stores
     return (
       <View theme={this.props.theme} >
         <InputGroup style={{marginBottom: 10}} boarderType='round'>

@@ -1,5 +1,6 @@
 import {observable, action}  from 'mobx'
 import firebase from 'firebase'
+import {AsyncStorage} from 'react-native'
 
 export default class AuthStore {
   @observable authUser = null
@@ -22,6 +23,7 @@ export default class AuthStore {
 
   @action
   signOff(){
+       AsyncStorage.setItem("user", "")
     return firebase.auth().signOut()
   }
 

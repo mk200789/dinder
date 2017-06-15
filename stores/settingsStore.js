@@ -1,13 +1,14 @@
 import firebase from 'firebase'
 import MobxFirebaseStore from 'mobx-firebase-store'
+var Environment = require('../environment.js')
 
 const config = {
-  apiKey: "",
-  authDomain: "dinder-6959b.firebaseapp.com",
-  databaseURL: "https://dinder-6959b.firebaseio.com",
-  projectId: "dinder-6959b",
-  storageBucket: "dinder-6959b.appspot.com",
-  messagingSenderId: "577173982580"
+  apiKey: Environment.API_KEY,
+  authDomain: Environment.AUTH_DOMAIN,
+  databaseURL: Environment.DATABASE_URL,
+  projectId: Environment.PROJECT_ID,
+  storageBucket: Environment.STORAGE_BUCKET,
+  messagingSenderId: Environment.MESSAGING_SENDER_ID
 }
 
 
