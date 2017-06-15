@@ -9,29 +9,35 @@ import {Image, StyleSheet, Dimensions} from 'react-native'
 import Login from '../components/login'
 import {observer} from 'mobx-react/native'
 
+
 @observer
 export default class LoginScene extends Component{
-  constructor(props){
-    super(props)
-  }
+     constructor(props){
+          super(props)
+     }
 
-  render(){
-    const { theme, stores } = this.props
+     componentDidMount(){
+          this.props.state.current_page = this.props.title
+     }
 
-    return (
-      <Container theme={theme}>
-        <View style={style.container}>
-          <Content scrollEnabled={false}>
-            <Image style={style.loginBackground} source={stores.settings.LoginBG}>
-              <View style={style.loginForeground} >
-                <Login {...this.props}/>
-              </View>
-            </Image>
-          </Content>
-        </View>
-      </Container>
-    )
-  }
+
+     render(){
+          console.log("loginscene.js: ", this, this.props.state.stores.auth.authUser)
+          const { theme, stores } = this.props.state
+           return (
+                <Container theme={theme}>
+                    <View style={style.container}>
+                         <Content scrollEnabled={false}>
+                              <Image style={style.loginBackground} source={stores.settings.LoginBG}>
+                              <View style={style.loginForeground} >
+                                   <Login {...this.props}/>
+                              </View>
+                              </Image>
+                         </Content>
+                    </View>
+               </Container>
+          )
+     }
 }
 
 

@@ -15,13 +15,14 @@ export default class MatchScene extends Component {
     super(props)
   }
 
-  componentWillMount(){
-
+  componentDidMount(){
+      this.props.state.current_page = this.props.title
   }
 
   render(){
+       console.log("matchScene.js: ", this)
     return (
-      <Container theme={this.props.theme}>
+      <Container style={{margin: 128}}>
         <View>
           <Text> This is MatchScene </Text>
         </View>
