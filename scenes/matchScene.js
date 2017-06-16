@@ -31,12 +31,13 @@ export default class MatchScene extends Component {
   }
 
   _clickRightButton(){
-       alert("Right button clicked!")
+     //   alert("Right button clicked!")
+       Actions.newPostScene()
  }
 
   render(){
        console.log("matchScene.js: ", this)
-     //   console.log(this.props.state.exitIcon.uri)
+     //   console.log(this.props.state.exit.uri)
     return (
       <Container style={{margin: 128}}>
         <View>

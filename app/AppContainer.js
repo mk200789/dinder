@@ -11,6 +11,7 @@ import {Router, Scene, ActionConst, Actions} from 'react-native-router-flux';
 
 import LoginScene from '../scenes/loginScene'
 import MatchScene from  '../scenes/matchScene'
+import CreateNewPostScene from '../scenes/createNewPostScene'
 
 import NavigationDrawer from './NavigationDrawer'
 
@@ -64,6 +65,7 @@ export default class AppContainer extends Component{
 					<Scene key="root">
 						<Scene key="loginpage" component={LoginScene} title="Login" initial={true} type={ActionConst.REPLACE} hideNavBar={true}/>
                               <Scene key="matchScene" title="Match Scene" component={MatchScene}  type={ActionConst.REPLACE}  />
+                              <Scene key="newPostScene" title="Create New Post" component={CreateNewPostScene}  type={ActionConst.PUSH}  />
 					</Scene>
 				</Scene>
 			</Router>
