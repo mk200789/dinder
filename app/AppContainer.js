@@ -65,10 +65,10 @@ export default class AppContainer extends Component{
 			<Router>
 				<Scene key="drawer" key="loginScene" component={NavigationDrawer} open={false} passProps={true} state={this.state}>
 					<Scene key="root">
-						<Scene key="loginpage" component={LoginScene} title="Login" initial={true} type={ActionConst.REPLACE} hideNavBar={true}/>
-                              <Scene key="matchScene" title="Match Scene" component={MatchScene}  type={ActionConst.REPLACE}  />
-                              <Scene key="newPostScene" title="Create New Post" component={CreateNewPostScene}  type={ActionConst.PUSH}  />
-                              <Scene key="feedScene" title="Feed" component={FeedScene}  type={ActionConst.REPLACE}  />
+						<Scene key="loginpage" component={LoginScene} title="Login" initial={true} type={ActionConst.REPLACE} hideNavBar={true} />
+                              <Scene key="matchScene" title="Match Scene" component={MatchScene}  type={ActionConst.REPLACE}  navigationBarStyle={{backgroundColor: '#e8ecf2'}}/>
+                              <Scene key="newPostScene" title="Create New Post" component={CreateNewPostScene}  type={ActionConst.PUSH} navigationBarStyle={{backgroundColor: '#e8ecf2'}} />
+                              <Scene key="feedScene" title="Feed" component={FeedScene}  type={ActionConst.REPLACE}  navigationBarStyle={{backgroundColor: '#e8ecf2'}}/>
 					</Scene>
 				</Scene>
 			</Router>
