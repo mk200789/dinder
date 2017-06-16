@@ -29,18 +29,28 @@ export default class FeedScene extends Component {
           }
      }
 
-     _populateFeed(){
-
-     }
-
-
      componentWillMount(){
+          Icon.getImageSource('plus', 18, 'black').then(imgsource => {
+              Actions.refresh({
+                  rightButtonImage: imgsource,
+                  rightButtonIconStyle: { width: 18, height: 18 , marginRight: 10},
+                  onRight: this._clickRightButton.bind(this)
+              });
+         });
           const {feed} = this.props.state.stores
           this.state.posts = feed.getFeed()
      }
 
      componentDidMount(){
           this.props.state.current_page = this.props.title
+     }
+
+     _clickRightButton(){
+          Actions.newPostScene()
+    }
+
+     _populateFeed(){
+
      }
 
      render(){

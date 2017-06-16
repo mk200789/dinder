@@ -3,7 +3,9 @@ import firebase from 'firebase'
 import MobxFirebaseStore from 'mobx-firebase-store'
 import {AsyncStorage} from 'react-native'
 
+
 export default class FeedStore extends MobxFirebaseStore {
+
      constructor(){
           super(firebase.database().ref())
           firebase.auth().onAuthStateChanged((user) => {
