@@ -11,6 +11,9 @@ import {
 import {TouchableHighlight, Dimensions, TouchableOpacity} from 'react-native'
 import {Router, Scene, ActionConst, Actions} from 'react-native-router-flux';
 
+import { observer } from 'mobx-react/native'
+import { autoSubscriber } from 'firebase-nest'
+
 
 import CreateNewPost from '../components/createNewPost'
 
@@ -29,6 +32,7 @@ export default class FeedScene extends Component {
      _populateFeed(){
 
      }
+
 
      componentWillMount(){
           const {feed} = this.props.state.stores
@@ -50,6 +54,8 @@ export default class FeedScene extends Component {
               </View>
             </TouchableOpacity>
           ))
+
+          console.log("feedScene: ", this)
 
           return(
                <Container style={{marginTop: 128, marginLeft: 10, marginRight: 10, marginBottom: 10, alignItems: 'center'}}>

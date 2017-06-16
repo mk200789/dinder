@@ -19,8 +19,8 @@ export default class SideMenu extends Component {
     render(){
 
       const menuDescription = [
-        {id: 1, title: 'Match Scene', nav: Actions.matchScene},
-        {id: 2, title: 'Feed', nav: Actions.feedScene},
+        {id: 1, title: 'Feed', nav: Actions.feedScene},
+        {id: 2, title: 'Settings', nav: Actions.settingScene},
         {id: 3, title: 'Logout', nav: this._logout.bind(this)}
 
       ];

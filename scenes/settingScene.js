@@ -12,7 +12,7 @@ import {Router, Scene, ActionConst, Actions} from 'react-native-router-flux';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class MatchScene extends Component {
+export default class SettingScene extends Component {
 
   componentWillMount(){
 

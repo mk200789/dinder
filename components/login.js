@@ -41,7 +41,7 @@ export default class Login extends Component{
 
              this.props.state.user = text.email
              AsyncStorage.setItem("user", text.email)
-             Actions.matchScene()
+             Actions.feedScene()
         }).catch(function(error){
              alert("Password/username is incorrect. Please try again.")
         })

@@ -10,7 +10,7 @@ import {Router, Scene, ActionConst, Actions} from 'react-native-router-flux';
 
 
 import LoginScene from '../scenes/loginScene'
-import MatchScene from  '../scenes/matchScene'
+import SettingScene from  '../scenes/settingScene'
 import CreateNewPostScene from '../scenes/createNewPostScene'
 import FeedScene from '../scenes/feedScene'
 
@@ -52,22 +52,20 @@ export default class AppContainer extends Component{
 		AsyncStorage.getItem("user").done((val)=>{
 			if (val != null){
 				this.state.user = val
-				Actions.matchScene()
+				Actions.feedScene()
 
 			}
 		})
 	}
 
 	render() {
-		const {authUser} = this.state.stores.auth
-
 		return (
 			<Router>
 				<Scene key="drawer" key="loginScene" component={NavigationDrawer} open={false} passProps={true} state={this.state}>
 					<Scene key="root">
 						<Scene key="loginpage" component={LoginScene} title="Login" initial={true} type={ActionConst.REPLACE} hideNavBar={true} />
-                              <Scene key="matchScene" title="Match Scene" component={MatchScene}  type={ActionConst.REPLACE}  navigationBarStyle={{backgroundColor: '#e8ecf2'}}/>
                               <Scene key="newPostScene" title="Create New Post" component={CreateNewPostScene}  type={ActionConst.PUSH} navigationBarStyle={{backgroundColor: '#e8ecf2'}} />
+                              <Scene key="settingScene" title="Settings" component={SettingScene}  type={ActionConst.REPLACE}  navigationBarStyle={{backgroundColor: '#e8ecf2'}}/>
                               <Scene key="feedScene" title="Feed" component={FeedScene}  type={ActionConst.REPLACE}  navigationBarStyle={{backgroundColor: '#e8ecf2'}}/>
 					</Scene>
 				</Scene>
