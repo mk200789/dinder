@@ -37,10 +37,6 @@ export default class CreateNewPost extends Component{
      }
 
      _submit_post(){
-          console.log("post submit: ")
-          console.log("title: ", this.state.title)
-          console.log("content: ", this.state.content)
-          console.log("url: ", this.state.url)
           Actions.pop()
      }
 

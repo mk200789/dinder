@@ -12,17 +12,20 @@ import {Router, Scene, ActionConst, Actions} from 'react-native-router-flux';
 import LoginScene from '../scenes/loginScene'
 import MatchScene from  '../scenes/matchScene'
 import CreateNewPostScene from '../scenes/createNewPostScene'
+import FeedScene from '../scenes/feedScene'
 
 import NavigationDrawer from './NavigationDrawer'
 
 import AuthStore from '../stores/authStore'
 import theme from '../theme/base-theme'
 import SettingsStore from '../stores/settingsStore'
+import FeedStore from '../stores/feedStore'
 
 import styles from '../components/style'
 
 const settings = new SettingsStore()
 const authStore = new AuthStore()
+const feedStore = new FeedStore()
 
 import {AsyncStorage} from 'react-native'
 
@@ -36,7 +39,8 @@ export default class AppContainer extends Component{
 			user: "",
 			stores: {
 				settings: settings,
-				auth: authStore
+				auth: authStore,
+                    feed: feedStore,
 			},
 			theme: theme,
 
@@ -57,8 +61,6 @@ export default class AppContainer extends Component{
 	render() {
 		const {authUser} = this.state.stores.auth
 
-		console.log("AppContainer.js: render(): ", this)
-
 		return (
 			<Router>
 				<Scene key="drawer" key="loginScene" component={NavigationDrawer} open={false} passProps={true} state={this.state}>
@@ -66,6 +68,7 @@ export default class AppContainer extends Component{
 						<Scene key="loginpage" component={LoginScene} title="Login" initial={true} type={ActionConst.REPLACE} hideNavBar={true}/>
                               <Scene key="matchScene" title="Match Scene" component={MatchScene}  type={ActionConst.REPLACE}  />
                               <Scene key="newPostScene" title="Create New Post" component={CreateNewPostScene}  type={ActionConst.PUSH}  />
+                              <Scene key="feedScene" title="Feed" component={FeedScene}  type={ActionConst.REPLACE}  />
 					</Scene>
 				</Scene>
 			</Router>

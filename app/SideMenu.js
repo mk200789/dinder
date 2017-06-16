@@ -16,11 +16,11 @@ export default class SideMenu extends Component {
      }
 
     render(){
-      console.log("SideMenu: ", this)
 
       const menuDescription = [
         {id: 1, title: 'Match Scene', nav: Actions.matchScene},
-        {id: 2, title: 'Logout', nav: this._logout.bind(this)}
+        {id: 2, title: 'Feed', nav: Actions.feedScene},
+        {id: 3, title: 'Logout', nav: this._logout.bind(this)}
 
       ];
 
@@ -34,7 +34,7 @@ export default class SideMenu extends Component {
         </TouchableOpacity>
       ))
 
-     console.log(this.props.state.user)
+
       return (
         <View style={{ flex: 1, backgroundColor: 'red' }}>
             <View style={{ alignItems: 'center' , paddingTop: 40}}>

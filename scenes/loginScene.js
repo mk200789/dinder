@@ -22,7 +22,6 @@ export default class LoginScene extends Component{
 
 
      render(){
-          console.log("loginscene.js: ", this, this.props.state.stores.auth.authUser)
           const { theme, stores } = this.props.state
            return (
                 <Container theme={theme}>

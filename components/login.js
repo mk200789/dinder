@@ -49,7 +49,6 @@ export default class Login extends Component{
   }
 
   render(){
-       console.log("login.js: ", this)
     const {loading} = this.state
     const {auth} = this.props.state.stores
     return (

@@ -23,16 +23,14 @@ export default class NavigationDrawer extends Component{
   }
 
   _pressMenu(action, title){
-    console.log("pressmenu: ", title, this)
     if (this.props.state.current_page == title){
-      console.log("going to the same page")
       this._hideMenu()
     }
     action()
   }
 
   render(){
-    console.log("NavigationDrawer.js: ", this)
+    // console.log("NavigationDrawer.js: ", this)
     const state = this.props.navigationState;
     const children = state.children;
     return(
